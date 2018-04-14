@@ -26,11 +26,20 @@ namespace NPOI
             for (int i = 0; i < 100; i++)
             {
                 int n = (int)Math.Floor(i / 10d);
-              
-                    int m = i % (n * 10);
+
+                int m = i % (n * 10);
+                if (n == 0)
+                {
                     var row = sheet.CreateRow(n);
                     var cell = row.CreateCell(m);
                     cell.SetCellValue(n + "+" + i);
+                }
+                else
+                {
+                    var row = sheet.CreateRow(n);
+                    var cell = row.CreateCell(m);
+                    cell.SetCellValue(n + "+" + i);
+                }
 
             }
             //保存
