@@ -22,23 +22,21 @@ namespace NPOI
             var sheet = wk.CreateSheet("第一个Sheet");
 
             //创建单元格  
-
             for (int i = 0; i < 100; i++)
             {
                 int n = (int)Math.Floor(i / 10d);
-
-                int m = i % (n * 10);
                 if (n == 0)
                 {
                     var row = sheet.CreateRow(n);
-                    var cell = row.CreateCell(m);
-                    cell.SetCellValue(n + "+" + i);
+                    var cell = row.CreateCell(i);
+                    cell.SetCellValue(n + "+" + (i+1));
                 }
                 else
                 {
+                    int m = i % (n * 10);
                     var row = sheet.CreateRow(n);
                     var cell = row.CreateCell(m);
-                    cell.SetCellValue(n + "+" + i);
+                    cell.SetCellValue(n + "+" + (i+1));
                 }
 
             }
